@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>dropdown menu</title>
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <header class="header">
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Contact</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Project</a></li>
+                            <li><a href="#">Skills</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Project</a></li>
+                    <li><a href="#">Skills</a></li>
+                </ul>
+            </nav>
+        </header>
+        <button onclick="noon ()">click to display noon</button>
+        <p id="demo"></p>
+
+        <button onclick="getLocation ()">click to fetch location</button>
+        <p id="locate"></p>
+        <script>
+            function getLocation(){
+                if (navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(showPosition)
+                }
+                else{
+                    document.getElementById("locate").innerHTML="opps, this browser cannot fetch your current location"
+                }
+            }
+
+                function showPosition(position){
+                document.getElementById("locate").innerHTML="latitude: " + position.coords.latitude + "longitude: " + position.coords.longitude;
+             }
+    
+            let hour = 10;
+            function noon (){
+                if (hour >= 6 && hour <12){
+                    document.getElementById('demo').innerHTML="good morning"
+                };
+                     if (hour >= 12 && hour <16){
+                   document.getElementById('demo').innerHTML="good afternoon"
+                    };
+                    if (hour >= 16 && hour <24){
+                   document.getElementById('demo').innerHTML="good evening"
+                    };
+            }    
+            
+        </script>
+    </body>
+</html>
